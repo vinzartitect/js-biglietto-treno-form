@@ -1,7 +1,7 @@
 // creo la variabile riferita al button 
 let bottoneGenera = document.getElementById('btn_gen_ticket');
 
-// azione pressione sul bottone 
+// azione pressione sul bottone Genera
 bottoneGenera.addEventListener('click',
 
     function() {
@@ -16,6 +16,17 @@ bottoneGenera.addEventListener('click',
 
         // Stampa del nome-cognome passeggero sul biglietto
         document.getElementById('nome_cognome').innerHTML = nome_pass;
+
+
+        // allert fino alla totale compilazione dei dati
+        if (nome_pass == null || nome_pass == "",
+            km_pass == null || km_pass == "",
+            eta_pass == null || eta_pass == "") {
+
+        alert('inserire tutti i dati per generare il biglietto');
+
+        } else (display_none.style.display = "block")
+
 
         // Numero carrozza e posto
         // considero che il treno abbia 8 carrozze e ci siano 50posti a carrozza
@@ -75,4 +86,22 @@ bottoneGenera.addEventListener('click',
  
     }
 
+)
+
+// azione pressione sul bottone Annulla
+
+let bottoneAnnulla = document.getElementById("btn_calcel");
+
+bottoneAnnulla.addEventListener('click',
+    function() {
+
+        // premendo il biglietto sparisce
+        let display_none = document.getElementById('display_none');
+        display_none.style.display = "none";
+
+        // i dati input vengono azzerati
+        document.getElementById("nome_pass").value = " ";
+        document.getElementById("km_pass").value = " ";
+        document.getElementById("eta_pass").value = " ";
+    }
 )

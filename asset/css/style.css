@@ -60,9 +60,9 @@ input {
 /* SEZIONE BIGLIETTO GENERATO */
 
 #display_none {
-    display: block;
+    display: none;
 }
-   
+  
 #box_ticket {
     width: 90%;
     margin: 0 auto;
