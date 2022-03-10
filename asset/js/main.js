@@ -37,30 +37,42 @@ bottoneGenera.addEventListener('click',
         document.getElementById("numero_ticket_pass").innerHTML = numero_ticket_pass;
         
 
-        // COSTO BIGLIETTO - calcolo prezzo del biglietto in base ai Km e fasce d'età(offerta)
+        // COSTO BIGLIETTO - calcolo prezzo del biglietto
         let euro_per_km = 0.21;
         let prezzo_ticket_standard = (km_pass * euro_per_km);
+            
+            // creazione variabile vuota 
+        let prezzo_ticket_pass;  
 
         if (eta_pass == "standard") {
 
              // Stampa biglietto base
             document.getElementById("offerta_pass").innerHTML = "Biglietto Standard";
+            prezzo_ticket_pass = prezzo_ticket_standard;
 
         } else if (eta_pass == "underage") {
 
             let prezzo_ticket_minorenne = (prezzo_ticket_standard * 0.8);
              // Stampa biglietto minorenne
             document.getElementById("offerta_pass").innerHTML = "Sconto Minorenni";
+            prezzo_ticket_pass = prezzo_ticket_minorenne;
 
         } else if (eta_pass == "over65") {
 
             let prezzo_ticket_over65 = (prezzo_ticket_standard * 0.6);
              // Stampa biglietto anziano
             document.getElementById("offerta_pass").innerHTML = "Sconto Over 65";
+            prezzo_ticket_pass = prezzo_ticket_over65;
 
         }
 
-
+        
+        //output del prezzo finale con massimo due decimali
+        prezzo_ticket_pass = prezzo_ticket_pass.toFixed(2);
+        
+        // Stampa prezzo finale
+        document.getElementById('prezzo_ticket_pass').innerHTML = `${prezzo_ticket_pass} €`;
+ 
     }
 
 )
